@@ -1,0 +1,14 @@
+is project is a multi-tenant SaaS application built with the CodeIgniter 4 framework. Its core function is to provide separate, secure dashboards for multiple organizations or teams, while also offering a centralized administration panel for a super-admin.
+
+Here's a breakdown of the key features and how they work:
+
+Key Features
+User Accounts & Organizations: Users can register and automatically get a new organization with an org_admin role. The system is "multi-tenant" because it keeps data for each organization separate using org_id.
+
+Role-Based Access Control (RBAC): Different users have different roles (e.g., super_admin, org_admin) with specific permissions. The RBACFilter checks these permissions before allowing access to a page, ensuring users can only see what they're allowed to see.
+
+Usage Analytics: The TenantFilter logs every action a user takes on the site. This data is used to populate the Usage Analytics table on the dashboard, showing a count of actions performed within that specific organization.
+
+Admin Panel: There is a dedicated admin panel that is only accessible to a super_admin role. This panel provides a global overview of all users, organizations, and system-wide analytics.
+
+Billing Hooks: The application includes a Billing controller and SubscriptionModel to integrate with Stripe's webhooks, allowing for automated management of subscriptions and billing events.
